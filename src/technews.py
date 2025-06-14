@@ -17,7 +17,7 @@ google_api_key=os.getenv('google_api_key')
 
 newsapi = NewsApiClient(news_api_key)
 
-def get_techcrunch() -> str:
+def get_technews() -> str:
     top_headlines = newsapi.get_top_headlines(category='technology',
                                           language='en',
                                           country='us')
@@ -31,11 +31,11 @@ def get_techcrunch() -> str:
     return "\n".join(summaries)
 
 
-techcrunch = get_techcrunch()
-agent_data = Agent(
-    model=Gemini(id="gemini-2.0-flash",api_key=google_api_key),
-    markdown=True
-)
+# technews = get_technews()
+# agent_data = Agent(
+#     model=Gemini(id="gemini-2.0-flash",api_key=google_api_key),
+#     markdown=True
+# )
 
-agent = agent_data
-agent.print_response(f"Here are some news headlines:\n{techcrunch}\n\nSummarize these in bullet points.", stream=True)
+# agent = agent_data
+# agent.print_response(f"Here are some news headlines:\n{techcrunch}\n\nSummarize these in bullet points.", stream=True)
